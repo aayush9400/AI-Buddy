@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>AI Buddy</h1>
+    <div>
+      <div class="dropdown">
+        <input type="button" onclick="window.location.href="{{url_for('past')}}";" value="PAST RECORDS" />
+        <input type="button" onclick="window.location.href="https://www.practo.com/jaipur/psychiatrist" value="GET INSTANT HLP" />
+      </div>
+      <div id="chatbox">
+        <p class="botText"><span>Hi! I'm AI Buddy. I'm here to help you..</span></p>
+      </div>
+      <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+      </div>
+      <div id="scorebox">
+        <p>Your daily mood score: </p>
+        <p>1 : Sad</p>
+        <p>10: Happy</p>
+
+      </div>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data['text'] + '</span></p>';
+            var scoreHtml = '<p><span>' + data['scoreint'] + '</span></p>';
+            $("#chatbox").append(botHtml);
+            $("#scorebox").append(scoreHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+    </div>
+  </body>
+</html>

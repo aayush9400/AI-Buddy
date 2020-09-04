@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Login Page</title>
+<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+<!--<link rel="stylesheet" type="text/css" href="css/seeee.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style-2.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='seeee.css') }}">
+<meta charset="utf-8">
+</head>
+<body>
+	<body>
+	  <header id="main-header">
+	    <div class="container">
+	        <h1>AI Buddy</h1>
+	    </div>
+	  </header>
+		<div class="heading">
+				 <h2>Your way to mood analysis...</h2>
+		</div>
+		<br>
+		<div class="god">
+			<a><img src="{{ url_for('static', filename='images/XX.jpg') }}"  width="350" padding-left: "50000px" align=middle></a>
+		</div>
+		<br>
+		<form name="loginForm" method="post" action="loginpage.html">
+		<table width="60%" bgcolor="white" align="center">
+
+		<div class="gosh">
+			<p>User Id:</p>
+			<input type="text" size:50 name="userid">
+
+			<p>Password:</p>
+			<input type="Password" size:50 name="pwd">
+		</div>
+
+		<div class="please">
+			<input type="Reset" id="sizing">
+			<input type="submit" onclick="return check(this.form)" value="Login" id="login">
+		</div>
+
+
+		</table>
+		</form>
+
+<script language="javascript">
+function check(form)
+{
+
+if(form.userid.value == "Admin" && form.pwd.value == "Admin")
+{
+	window.open('after_login.html');
+}
+else
+{
+	alert("Error Password or Username")
+	return false;
+}
+}
+</script>
+
+</body>
+</html>

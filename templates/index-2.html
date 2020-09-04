@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AI BUDDY</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style-2.css') }}">
+</head>
+<body>
+	<header id="main-header">
+		<div class="container">
+			<h1>AI Buddy</h1>
+			<div class="ash">
+				<p style="text-align:left;">
+					Understand your FEELINGS better.
+					<span style="float:right;">
+						<a class="ansh" href="{{url_for('login')}}"> Login </a>
+					</span>
+				</p>
+			</div>	
+		</div>	
+	</header>
+
+	<nav id="navbar">
+		<div class="container">
+			<ul>
+				<li><a href="{{url_for('home')}}">Home</a></li>
+				<li><a href="{{url_for('home')}}">FAQ</a></li>
+				<li><a href="{{url_for('chat')}}">Chat Now</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<section id="showcase">
+		<div class="container">
+			<h1>Giving you the best solutions, according to your moods.</h1>
+		</div>
+	</section>
+
+	<div class="container">
+		<section id="main">
+			<h1>Welcome</h1>
+			<p>According to recent research and development, AI counselling be the future of therapy. 
+				It is asserted that it is easy to start a conversation with your virtual therapist. Advancements in artificial intelligence (AI) are bringing psychotherapy to more people who need it. It is becoming clear that AI for mental health could be a game changer. The digital health technology asks about your mood and thoughts, “listens” to how you are feeling, learns about you and offers evidence.
+			</p>
+		</section>
+		<aside id="sidebar">
+			<p> Advances in natural language processing and the popularity of smartphones have made chatbots the new starlets of AI for mental health care.</p>
+	</div>
+
+	<footer id="main-footer">
+		<p>www.aibuddy.com</p>
+	</footer>
+</body>
+</html>
